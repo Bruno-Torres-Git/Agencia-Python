@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block titulo %} Ingresar {% endblock %}
+
+{% block cabecera %}<h2>Ingresa al sitio</h2>{% endblock %}
+
+{% block contenido %}
+<form method= "POST">{% csrf_token %}
+    {% for campo in formulario %}
+        <p>{{campo.label_tag}}
+            <br>
+            {{campo}}
+        </p>
+    {% endfor %}
+    <input type="submit" value="Ingresar">
+</form>
+{% endblock %}

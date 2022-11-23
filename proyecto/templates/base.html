@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="shortcut icon" href="{% static '../static/img/icono.png' %}">
+    <title>{% block titulo %}{% endblock %}</title>
+</head>
+<body>
+    <header>
+        {% block cabecera %}{% endblock %}
+    </header>
+    <nav>
+        <ul>
+            {% if request.user.is_anonymous%}
+                <li><a href="{% url 'registro' %}">Registro</a></li>
+                <li><a href="{% url 'ingresar' %}">Ingresar</a></li>
+                <li><a href="{% url 'inicio' %}">Inicio</a></li>
+            {% else %}
+                <li><a href="{% url 'destinos' %}">Destinos</a></li>
+                <li><a href="{% url 'inicio' %}">Inicio</a></li>
+                <li><a href="{% url 'contacto' %}">Contacto</a></li>    
+                <li><a href="{% url 'salir' %}">Salir</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+    <nav>
+        {% block busqueda %} {% endblock %}
+    </nav>
+    <section>
+        {% block contenido %}{% endblock %}
+    </section>
+    <footer>
+        Proyecto final de Python intensivo 
+    </footer>
+</body>
+</html>

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block titulo %}Fallo envio{% endblock %}
+
+{% block cabecera %}<h2>Fallo el envio</h2>{% endblock %}
+
+{% block contenido %}
+
+<p>Ha habido un problema, intentelo mas tarde</p>
+
+<img src="{% static 'img/caratriste.png' %}" alt="">
+
+
+{% endblock %}

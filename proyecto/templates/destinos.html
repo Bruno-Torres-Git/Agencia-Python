@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block titulo %} Destinos {% endblock %}
+
+{% block busqueda %}
+    <form id="busqueda" method="GET" action="/buscar">
+        <input type="text" name="buscar">
+        <input type="submit" value="Busqueda">
+    </form>
+{% endblock %}

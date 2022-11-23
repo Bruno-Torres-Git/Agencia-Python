@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block titulo%} Resultados {% endblock %}
+
+{% block contenido %}
+    {% if viajes %}
+        {% for viaje in viajes %}    
+            <p>Destino: {{viaje.destino}}</p>
+            <p>Precio: {{viaje.precio}}</p>
+            {% for a in viaje.empresa.all %}
+                <p>Empresa: {{a.nombre}}</p>
+                <p>Mail: {{a.mail}}</p>
+            {% endfor %}
+            <p>
+                <img class="res" src="{{viaje.imagen.url}}" alt="">
+            </p>    
+        {% endfor %}
+    {% else %}
+        <p>Su busqueda no arroja resultados</p>
+    {% endif %}
+{% endblock %}
